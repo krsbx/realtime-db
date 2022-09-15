@@ -1,18 +1,25 @@
+import { Server } from 'socket.io';
 import { config } from 'dotenv';
 import { expand } from 'dotenv-expand';
 import express from 'express';
+import { createServer } from 'http';
+import root from './utils/root';
 
 expand(config());
 
-const app = express();
 const PORT = process.env.PORT ?? 3001;
 
-app.listen(PORT, () => {
+const app = express();
+const httpServer = createServer(app);
+
+httpServer.listen(PORT, () => {
   console.log(`Server is live @ Port ${PORT}`);
 });
 
-app.get('/', (req, res) => {
-  res.json({
-    message: 'Hello',
-  });
+const io = new Server(httpServer, {
+  cors: {
+    origin: '*',
+  },
 });
+
+root(app, io);
