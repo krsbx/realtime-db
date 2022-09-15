@@ -1,0 +1,11 @@
+node_modules/
+
+next-env.d.ts
+next.config.js
+package.json
+package-lock.json
+.eslintrc.json
+tsconfig.json
+
+src/repository/models.ts
+src/repository/baseRepository.ts

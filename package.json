@@ -1,0 +1,66 @@
+{
+  "name": "realtime-db",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "start": "node dist/index.js",
+    "build": "tsc --project tsconfig.build.json",
+    "dev": "nodemon src/index.ts",
+    "migrate": "prisma migrate dev",
+    "migrate:create": "prisma migrate dev --name",
+    "migrate:reset": "prisma migrate reset",
+    "postmigrate": "prisma-repo --model-structures",
+    "seed": "prisma db seed",
+    "prepare": "husky install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/krsbx/realtime-db.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/krsbx/realtime-db/issues"
+  },
+  "homepage": "https://github.com/krsbx/realtime-db#readme",
+  "devDependencies": {
+    "@commitlint/cli": "^17.1.2",
+    "@commitlint/config-conventional": "^17.1.0",
+    "@types/express": "^4.17.14",
+    "@types/lodash": "^4.14.185",
+    "@types/node": "^18.7.18",
+    "@typescript-eslint/eslint-plugin": "^5.37.0",
+    "eslint": "^8.23.1",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-import-resolver-typescript": "^3.5.1",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "nodemon": "^2.0.19",
+    "prettier": "^2.7.1",
+    "prisma": "^4.3.1",
+    "prisma-repo": "^0.3.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.8.3"
+  },
+  "dependencies": {
+    "@krsbx/prisma-fqp": "^0.2.8",
+    "@prisma/client": "^4.3.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.2",
+    "dotenv-expand": "^9.0.0",
+    "express": "^4.18.1",
+    "express-asyncmw": "^0.1.1",
+    "lodash": "^4.17.21"
+  },
+  "lint-staged": {
+    "src/**/*.{ts,tsx}": [
+      "prettier --write",
+      "eslint --fix"
+    ]
+  }
+}
