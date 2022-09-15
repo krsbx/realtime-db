@@ -1,0 +1,12 @@
+export const USER_ROLE = {
+  ADMIN: 'ADMIN',
+  USER: 'USER',
+} as const;
+
+export const SOCKET_METHOD = {
+  CREATE: 'CREATE',
+  UPDATE: 'UPDATE',
+  DELETE: 'DELETE',
+} as const;
+
+export const SOCKETABLE = [SOCKET_METHOD.CREATE, SOCKET_METHOD.UPDATE, SOCKET_METHOD.DELETE];
